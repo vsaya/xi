@@ -1,0 +1,9 @@
+vim /etc/hosts
+add:
+127.0.0.1       localhost
+::1             localhost
+127.0.1.1       hostname.localdomain hostname
+
+# blocked sites:
+#0.0.0.0 www.twitch.tv
+#0.0.0.0 www.youtube.com

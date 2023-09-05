@@ -1,0 +1,8 @@
+mkswap /dev/swap_partition
+mkfs.ext4 /dev/root_partition
+
+if separate HOME
+mkfs.ext4 /dev/home_partition
+
+if EFI:
+mkfs.fat -F 32 /dev/efi_system_partition

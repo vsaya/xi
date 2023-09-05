@@ -1,0 +1,5 @@
+mount /dev/root_partition /mnt
+swapon /dev/swap_partition
+
+if EFI:
+mount --mkdir /dev/efi_system_partition /mnt/boot

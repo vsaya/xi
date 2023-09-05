@@ -1,0 +1,27 @@
+EFI
+First, install the packages grub and efibootmgr: GRUB is the boot loader while efibootmgr is used by the GRUB installation script to write boot entries to NVRAM.
+
+pacman -S grub efibootmgr
+
+for 64bit efi (esp is mount point for the EFI partition, the options are /boot, /efi)
+grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB
+or 32bit efi
+grub-install --target=i386-efi --efi-directory=esp --bootloader-id=GRUB
+
+
+MBR
+install grub
+pacman -S grub
+
+then do:
+grub-install --target=i386-pc /dev/sdX
+
+where i386-pc is deliberately used regardless of your actual architecture, and /dev/sdX is the disk (not a partition) where GRUB is to be installed.
+
+
+CONFIGURE GRUB
+Note: Remember to always generate the main configuration file after making changes to /etc/default/grub and/or files in /etc/grub.d/.
+Warning: Update/reinstall the boot loader (see #UEFI systems or #BIOS systems) if a new GRUB version changes the syntax of the configuration file: mismatching configuration can result in an unbootable system.
+
+generate with:
+grub-mkconfig -o /boot/grub/grub.cfg

@@ -1,0 +1,23 @@
+1. loadkeys sv-latin1
+2. cat /sys/firmware/efi/fw_platform_size (>64 | 32 | nothing=no-uefi)
+3. timedatectl (wrong time-> timedatectl set-timezone Europe/Stockholm) 
+4. partition disks
+5. format partitions
+6. mount file systems
+7. cat /etc/pacman.d/mirrorlist (reflector should have updated them automatically)
+8. pacstrap -K /mnt base base-devel linux linux-firmware e2fsprogs(ext4 utils) dosfstools(if UEFI) \
+   dhcpcd NetworkManager vi vim git man-db man-pages texinfo
+9. genfstab -U /mnt >> /mnt/etc/fstab (cat /mnt/etc/fstab)
+
+# chroot
+10. arch-chroot /mnt
+11. ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+12. hwclock --systohc
+13. localization
+14. echo "hostname" > /etc/hostname
+15. configure-hosts
+16. initramfs
+17. passwd (set root password)
+18. install bootloader
+19. exit chroot, reboot
+20. login as root, git clone xi to /tmp, follow steps in pi (post-install)

@@ -1,0 +1,5 @@
+Creating a new initramfs is usually not required, because mkinitcpio was run on installation of the kernel package with pacstrap.
+
+For LVM, system encryption or RAID, modify mkinitcpio.conf(5) at /etc/mkinitcpio.conf by default and recreate the initramfs image:
+
+mkinitcpio -P

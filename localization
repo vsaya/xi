@@ -1,0 +1,24 @@
+vim /etc/locale.gen
+
+uncomment:
+en_US.UTF-8 UTF-8
+ja_JP.UTF-8 UTF-8
+ru_RU.UTF-8 UTF-8
+sv_SE.UTF-8 UTF-8
+
+gen:
+locale-gen
+
+-----
+vim /etc/locale.conf
+add:
+LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
+(LC_ALL sets all LC_** localization variables at once)
+(use locale without arguments to see a summary)
+
+-----
+vim /etc/vconsole.conf
+add:
+KEYMAP=sv-latin1

@@ -1,0 +1,22 @@
+list with lsblk, partition with fdisk
+The following partitions are required for a chosen device:
+
+* One partition for the root directory /.
+* For booting in UEFI mode: an EFI system partition.
+------
+
+EFI
+mnt/boot  ->  /dev/efi_partition
+bootctl does not support installing systemd-boot to an MBR partitioned disk
+if installing from windows etc, check for existing EFI:
+fdisk -l /dev/sdx -> gpt if the partition table is GPT or dos if it is MBR
+it is recommend to make the EFI partition at least 300 MiB
+
+SWAP
+[SWAP] ->  /dev/swap_partition
+More than 512 MiB (with lots of memory (+32Gb) 2Gb swap is OK,
+if using applications heavy on RAM, make saw same size as RAM)
+
+ROOT
+/mnt  ->  /dev/root_partition
+remainder of device
