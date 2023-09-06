@@ -1,0 +1,5 @@
+1. configure hosts
+2. nwm (networkmanager)
+3. interfaces for network (redundant if nwm works fine)
+    - wireless
+    - ethernet

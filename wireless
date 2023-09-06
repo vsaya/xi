@@ -1,0 +1,31 @@
+check driver status:
+lspci -k
+06:00.0 Network controller: Intel Corporation WiFi Link 5100
+	Subsystem: Intel Corporation WiFi Link 5100 AGN
+	Kernel driver in use: iwlwifi
+	Kernel modules: iwlwifi
+
+ip link (see if a wireless interface was created)
+ip link set interface up
+
+Check the following lists to discover if your card is supported:
+https://wireless.wiki.kernel.org/en/users/drivers
+list of wireless cards and whether or not they are supported either in the Linux kernel or by a user-space driver:
+https://help.ubuntu.com/community/WifiDocs/WirelessCardsSupported
+If your wireless card is not listed above, it is likely supported only under Windows (some Broadcom, 3com, etc). For these, you can try to use #ndiswrapper.
+
+Managing a wireless connection requires a basic set of tools.
+Either use a network manager or use one of the following directly:
+wireless_tools
+iw
+wpa_supplicant
+iwd
+
+Discover access points:
+iw dev interface scan | less
+
+Note: If it displays Interface does not support scanning, then you probably forgot to install the firmware. In some cases, this message is also displayed when not running iw as root.
+
+connect:
+iw dev interface connect "your_essid" key 0:your_key
+iw dev interface connect "your_essid" (no encryption)

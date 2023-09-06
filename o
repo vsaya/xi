@@ -6,7 +6,8 @@
 6. mount file systems
 7. cat /etc/pacman.d/mirrorlist (reflector should have updated them automatically)
 8. pacstrap -K /mnt base base-devel linux linux-firmware e2fsprogs(ext4 utils) dosfstools(if UEFI) \
-   dhcpcd NetworkManager vi vim git man-db man-pages texinfo
+   dhcpcd networkmanager vi vim git stow man-db man-pages texinfo intel-ucode(updates to microcode) \
+   amd-ucode(for AMD processors)
 9. genfstab -U /mnt >> /mnt/etc/fstab (cat /mnt/etc/fstab)
 
 # chroot
@@ -15,9 +16,9 @@
 12. hwclock --systohc
 13. localization
 14. echo "hostname" > /etc/hostname
-15. configure-hosts
+15. network configuration 
 16. initramfs
 17. passwd (set root password)
 18. install bootloader
 19. exit chroot, reboot
-20. login as root, git clone xi to /tmp, follow steps in pi (post-install)
+20. login as root, re-check network config, git clone xi to /tmp, follow steps in pi (post-install)

@@ -1,0 +1,19 @@
+1. useradd -m -G wheel -s /bin/bash xsaya 
+2. passwd xsaya
+3. EDITOR=vim visudo -> #%wheel ALL=(ALL) ALL
+                        ^remove
+4. exit root, login xsaya                         
+5. sudo pacman -Syu
+6. sudo pacman -S xorg-xerver xorg-xinit nvidia(libglvnd if asked) \
+        pipewire pipewire-alsa pipewire-pulse wireplumber(connection logic)
+(pipewire-pulse needed, many system applications still send out calls to PulseAudio)
+                alternatively use the old ways of ->  pulseaudio \
+                    i3-wm i3blocks(maybe not needed)
+                            kitty (fallback terminal)
+
+7. reboot, login xsaya (must reboot for audio services to start (hopefully automatically))
+8. startx /usr/bin/i3, choose alt as $mod -> open terminal in i3
+9. git clone https://github.com/vsaya/dotfiles.git (currently needs key to authenticate)
+10. cd dotfiles -> stow
+11. cd .stow-local-ignore -> ./bootstrap (the bootstrap script installs the rest of the system)
+12. done 

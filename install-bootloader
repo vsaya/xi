@@ -3,7 +3,7 @@ First, install the packages grub and efibootmgr: GRUB is the boot loader while e
 
 pacman -S grub efibootmgr
 
-for 64bit efi (esp is mount point for the EFI partition, the options are /boot, /efi)
+for 64bit efi (esp is mount point for the EFI partition?, the options are /boot, /efi normally)
 grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB
 or 32bit efi
 grub-install --target=i386-efi --efi-directory=esp --bootloader-id=GRUB
@@ -25,3 +25,6 @@ Warning: Update/reinstall the boot loader (see #UEFI systems or #BIOS systems) i
 
 generate with:
 grub-mkconfig -o /boot/grub/grub.cfg
+
+NOTE: make sure that the microcode image is present before initramfs-linux.img in the initrd entry
+since we installed the microcode package in the pacstrap, grub should automatically configure this.

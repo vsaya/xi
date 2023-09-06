@@ -1,0 +1,28 @@
+show:
+ip addr show
+
+start dhcpcd service:
+systemctl start dhcpcd@interface
+if it works, enable it permanently
+
+TROUBLESHOOTING
+Device driver
+lspci -v
+02:00.0 Ethernet controller: Attansic Technology Corp. L1 Gigabit Ethernet Adapter (rev b0)
+ 	...
+ 	Kernel driver in use: atl1
+ 	Kernel modules: atl1
+
+Next, check that the driver was loaded by running dmesg | grep module_name as root
+dmesg | grep atl1
+...
+atl1 0000:02:00.0: eth0 link is up 1000 Mbps full duplex
+
+Search the internet for the right module/driver for your chipset. Some common modules are 8139too for cards with a Realtek chipset, or sis900 for cards with a SiS chipset
+Once you know which module to use, try to load it manually:
+modprobe module_name
+modprobe -r module_name (unload module)
+
+
+
+

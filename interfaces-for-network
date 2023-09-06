@@ -1,0 +1,14 @@
+check:
+ping www.example.com
+
+show devices:
+ip addr show
+ls /sys/class/net
+Note that lo is the virtual loopback interface and not used in making network connections
+iw dev (Wireless device names)
+
+disable/enable interface:
+ip link set interface up|down
+ip link show dev enp2s0
+The UP in <BROADCAST,MULTICAST,UP,LOWER_UP> is what indicates the interface is up, not the later state DOWN.
+

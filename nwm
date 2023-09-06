@@ -1,0 +1,38 @@
+start/enable NetworkManager.service:
+systemctl enable NetworkManager.service
+
+Once the NetworkManager daemon is started, it will automatically connect to any
+available "system connections" that have already been configured
+it prefers wired connections
+
+Any "user connections" or unconfigured connections will need nmcli or an applet
+to configure and connect.
+
+NetworkManager comes with nmcli(1) and nmtui(1).
+
+List nearby Wi-Fi networks:
+nmcli device wifi list
+
+Connect to a Wi-Fi network:
+nmcli device wifi connect SSID_or_BSSID password password
+
+Disconnect an interface:
+nmcli device disconnect ifname eth0
+
+Get a list of connections with their names, UUIDs, types and backing devices:
+nmcli connection show
+
+Activate a connection (i.e. connect to a network with an existing profile):
+nmcli connection up name_or_uuid
+
+Delete a connection:
+nmcli connection delete name_or_uuid
+
+Turn off Wi-Fi:
+nmcli radio wifi off
+
+/etc/NetworkManager/NetworkManager.conf (configuration usually not needed)
+nmcli general reload
+
+VPN support
+NetworkManager since version 1.16 has native support for WireGuard, all it needs is the wireguard kernel module
