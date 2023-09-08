@@ -15,7 +15,7 @@
 11. ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 12. hwclock --systohc
 13. localization
-14. echo "hostname" > /etc/hostname
+14. echo "ava/oak" > /etc/hostname
 15. network configuration 
 16. initramfs
 17. passwd (set root password)
