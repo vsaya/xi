@@ -1,4 +1,4 @@
-1. loadkeys sv-latin1
+1. fix sv-latin1 
 2. cat /sys/firmware/efi/fw_platform_size (>64 | 32 | nothing=no-uefi)
 3. timedatectl (wrong time-> timedatectl set-timezone Europe/Stockholm) 
 4. partition disks

@@ -4,7 +4,7 @@
                         ^remove
 4. exit root, login xsaya                         
 5. sudo pacman -Syu
-6. sudo pacman -S xorg-xerver xorg-xinit nvidia(libglvnd if asked) \
+6. sudo pacman -S xorg-server xorg-xinit nvidia(libglvnd if asked) \
         pipewire pipewire-alsa pipewire-pulse wireplumber(connection logic)
 (pipewire-pulse needed, many system applications still send out calls to PulseAudio)
                 alternatively use the old ways of ->  pulseaudio \

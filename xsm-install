@@ -1,23 +1,27 @@
 #!/bin/bash
 #__ __ ___ ___ ___ _____ _
 #\ \ /(_-</ _ `/ // / _ `/  XSM post installation script
-#/_\_\/___/\_,_/\_, /\_,_/                        /xsaya
-# 󰦕   サ   ガ  /___/          
+#/_\_\/___/\_,_/\_, /\_,_/  optional dependency : xclip 
+# 󰦕   サ   ガ  /___/                     /xsaya 
 
-sudo pacman -S --needed gnupg xclip git stow
+sudo pacman -S --needed gnupg git stow
 echo "decrypting..."
-gpg -d xsm-e5qu31fh28if3g7nzmjhf.gpg | xclip -selection clipboard
-gpg -d xsm-e5qu31fh28if3g7nzmjhf.gpg | xclip
+#gpg -d xsm-e5qu31fh28if3g7nzmjhf.gpg | xclip -selection clipboard
+#gpg -d xsm-e5qu31fh28if3g7nzmjhf.gpg | xclip
+
+token=$(gpg -d xsm-e5qu31fh28if3g7nzmjhf.gpg) || exit
 
 echo
-echo "token copied to clipboard."
+# echo "token copied to clipboard."
+echo "token decrypted."
 echo
 echo -n "Proceed with installation of xsm?(y/N): "
 read
 [ "$REPLY" = "y" ] && echo "fetching configuration..." || exit
 
 cd
-git clone https://github.com/vsaya/dotfiles
+#git clone https://github.com/vsaya/dotfiles
+git clone https://"$token"@github.com/vsaya/dotfiles.git || exit
 echo "deploying configuration."
 cd dotfiles
 stow *

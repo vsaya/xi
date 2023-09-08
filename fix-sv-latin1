@@ -1,0 +1,11 @@
+loadkeys sv-latin1
+showkey -k;
+
+to fix slash:
+cp /usr/share/kbd/keymaps/i386/qwerty/sv-latin1.map.gz ./svmap.map.gz
+use gunzip to extract it:
+gunzip svmap.map.gz
+change the odearis (might be key 39) second entry to 'slash'
+vim svmap.map
+:wq
+loadkeys svmap.map
