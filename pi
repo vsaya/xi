@@ -11,9 +11,9 @@
                     i3-wm i3blocks(maybe not needed)
                             kitty (fallback terminal)
 
-7. reboot, login xsaya (must reboot for audio services to start (hopefully automatically))
-8. startx /usr/bin/i3, choose alt as $mod -> open terminal in i3
-9. git clone https://github.com/vsaya/dotfiles.git (currently needs key to authenticate)
-10. cd dotfiles -> stow
-11. cd .stow-local-ignore -> ./bootstrap (the bootstrap script installs the rest of the system)
-12. done 
+7. git clone https://github.com/vsaya/xi  (yes, for the third time, xsaya owns it now)
+8. cd xi && ./xsm-install
+9. connect data drive and mount (optional)
+10. z ~/dotfiles/.stow-local-ignore/ && ./pull-core (optional)
+11. reboot, login xsaya (must reboot for audio services to start (hopefully automatically))
+12. login through ly, enjoy xsm!
