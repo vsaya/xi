@@ -7,12 +7,13 @@
 6. sudo pacman -S xorg-server xorg-xinit nvidia(libglvnd if asked) \
         pipewire pipewire-alsa pipewire-pulse wireplumber(connection logic)
 (pipewire-pulse needed, many system applications still send out calls to PulseAudio)
-                alternatively use the old ways of ->  pulseaudio \
+                alternatively use the old ways of ->  pulseaudio pulseaudio-alsa \
                     i3-wm i3blocks(maybe not needed)
                             kitty (fallback terminal)
 
 7. git clone https://github.com/vsaya/xi  (yes, for the third time, xsaya owns it now)
-8. cd xi && ./xsm-install
+8. cd xi && ./xsm-install 
+8.5 cd ~/dotfiles; stow * (make sure to do this!)
 9. connect data drive and mount (optional)
 10. z ~/dotfiles/.stow-local-ignore/ && ./pull-core (optional)
 11. reboot, login xsaya (must reboot for audio services to start (hopefully automatically))
